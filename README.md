@@ -4,14 +4,16 @@
 **Prime** est un moteur de recommandation d’itinéraires touristiques fondé sur une architecture data modulaire.  
 Il combine des données touristiques ouvertes, des signaux analytiques tiers et un modèle de scoring pour proposer des parcours personnalisés (POI principaux, satellites, restaurants midi, soir).
 
+Présentation en format vidéo : https://www.youtube.com/watch?v=cCFvDxpf1a8
+
 ![layout_streamlit_carte](docker/ui/assets/slides/layout_streamlit_carte.png)
-![layout_streamlit_table](sources/images/layout_streamlit_table.png)
+![layout_streamlit_table](docker/ui/assets/slides/layout_streamlit_table.png)
 
 ---
 
 ## 1) Architecture conceptuelle du moteur PRIME
 
-![01_concept](sources/images/01_concept.jpg)
+![01_concept](docker/ui/assets/slides/01_concept.jpg)
 
 Cette application part d’un principe simple : un voyage n’est ni seulement un trajet, ni seulement une destination.
 
@@ -44,8 +46,8 @@ L’objectif n’est pas seulement de recommander des lieux, mais de composer un
 
 ## 2) Nettoyage & transformation des données
 
-![flux_datatourisme](sources/images/flux_datatourisme.png)
-![02_enrich](sources/images/02_enrich.JPG)
+![flux_datatourisme](docker/ui/assets/slides/flux_datatourisme.png)
+![02_enrich](docker/ui/assets/slides/02_enrich.JPG)
 
 Le flux Datatourisme est composé de milliers de fichiers JSON hétérogènes produits par de multiples acteurs.
 
@@ -64,11 +66,6 @@ La valeur du projet ne vient pas de la collecte de données, mais de la créatio
 - 5. Construction du signal algorithmique : produire d’un score homogène indépendant du fournisseur : **score_prime = poids_categorie × (1 + poids_format + poids_tempo)**.
 
 La base devient un dataset décisionnel prêt pour recommandation automatique.
- 
-**Notebooks d’exploration**
-- [DataTourisme – Source de données](sources/datatourisme.md)
-- [TripAdvisor – Signaux de popularité](sources/tripadvisor.md)
-- [Airbnb – Hébergement (usage analytique)](sources/airbnb.md)
   
 Ces notebooks documentent la compréhension des sources et les choix de modélisation.
  
@@ -76,7 +73,7 @@ Ces notebooks documentent la compréhension des sources et les choix de modélis
 
 ## 3) Mécanisme de pondération du modèle PRIME
 
-![03_scoring](sources/images/03_scoring.jpg)
+![03_scoring](docker/ui/assets/slides/03_scoring.jpg)
 
 La sélection des lieux repose sur un modèle déterministe appelé score PRIME.
 
@@ -101,7 +98,7 @@ Pourquoi ce modèle ? car PRIME est un modèle de décision, pas un modèle de p
 
 ## 4) Pipeline algorithmique du moteur PRIME
 
-![04_pipeline](sources/images/04_pipeline.jpg)
+![04_pipeline](docker/ui/assets/slides/04_pipeline.jpg)
 
 L’utilisateur fournit un point de référence (ex : logement) ainsi que ses préférences : distance maximale, budget, rythme et types d’activités.
 
@@ -137,7 +134,7 @@ L’objectif est d’évoluer d’un outil d’aide à la décision vers un vér
 
 ## 5) Pipeline algorithmique du moteur PRIME
 
-![05_data](sources/images/05_data.jpg)
+![05_data](docker/ui/assets/slides/05_data.jpg)
 
 Pour garantir la fiabilité du système, les données ne sont jamais utilisées directement après ingestion.
 
@@ -171,7 +168,7 @@ Elles traversent plusieurs niveaux de transformation afin de devenir cohérentes
 
 ## 6) Industrialisation complète & Scalabilité
 
-![06_global](sources/images/06_global.jpg)
+![06_global](docker/ui/assets/slides/06_global.jpg)
 
 L’application repose sur une chaîne complète de traitement des données : collecter → préparer → scorer → restituer afin de générer automatiquement un itinéraire personnalisé.
 
@@ -237,7 +234,7 @@ L’architecture suit une logique data pipeline orientée décision : la donnée
 
 ## 6) IA comme partenaire de développement
 
-![07_ia](sources/images/07_ia.jpg)
+![07_ia](docker/ui/assets/slides/07_ia.jpg)
 
 ---
 
